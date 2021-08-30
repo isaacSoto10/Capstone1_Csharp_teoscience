@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Create a Hobby";
+}
+@model Tag
+<h1>Add a Tag </h1>
+
+<form asp-action="CreateTag" asp-controller="Home" method="POST">
+
+    <span asp-validation-for="Name"></span>  
+    <h4>Name For New Tag: </h4>
+    <input class="Form-Control" asp-for="Name" style="border-radius:10px;">
+    <br>
+
+
+    <button type="submit" style="margin-top: 8px;"class="btn btn-primary">Submit</button>
+</form>

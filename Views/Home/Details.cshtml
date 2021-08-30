@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Hobby Details";
+}
+@model Hobby
+
+<div class="headder">
+    <h1> @Model.Name </h1>
+    <br>
+    <br>
+    <h5>@Model.CreatedAt</h5>
+    <br>
+    <p> @Model.Description </p>
+    <br>
+    <hr>
+
+</div>
+
+<div style = "margin-top: 8px;">
+    <div class="box">
+        @foreach(var tag in Model.Tags)
+            {
+                <tr>
+                    <a href="/tags/@tag.TagId" class="btn btn-primary">@tag.Tag.Name</a>
+                </tr>
+            }
+    </div>
+</div>
+<div style = "margin-top: 20px;">
+    <a href="/tag/add/@Model.HobbyId" class="btn btn-secondary">Add New Tag</a>
+</div>

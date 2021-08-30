@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Hobby Details";
+}
+@model Tag
+
+<div class="headder">
+    <h1> @Model.Name</h1>
+</div>
+<div class="leftside">
+    <h4> Posts:</h4>
+    <div class="box">
+        
+        @foreach(var hobby in Model.Posts){
+            <div style = "margin-top: 8px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@hobby.Hobby.Name<h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="/Details/@hobby.HobbyId" class="btn btn-primary">Read Complete</a>
+                </div>
+                <div class="card-footer text-muted">
+                    @hobby.Hobby.CreatedAt
+                </div>
+            </div>
+            </div>
+        }
+    </div>
+</div>

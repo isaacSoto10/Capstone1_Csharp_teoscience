@@ -1,0 +1,33 @@
+<!--
+    Send a lisst aof available tabgs ( in a SELECT)
+    Send the POST ID to the form in a HIDDEN input
+
+    /// backend for
+
+    Receive a POST ID and a TAG ID from
+    Check that the post_id is valid by checking the database
+
+    Create PostHasTags
+-->
+@{
+    ViewData["Title"] = "Tags:";
+}
+<h1> Select your Tag For your Post: </h1>
+
+@model List<Tag>
+
+
+<form asp-action="CreatePostHasTags" asp-controller="Home" method="POST">
+    
+    <input type="hidden" name="postId" value="@ViewBag.hobbyId">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="tagId">
+    @foreach(Tag tag in Model){
+        <option value="@tag.TagId">@tag.Name</option>
+    }
+    </select>
+    <button type="submit" class="btn btn-primary">Add Tag</button>
+
+</form>
+<div>
+    <a asp-action="NewTag" type="button">Create a New Tag</a>
+</div>
